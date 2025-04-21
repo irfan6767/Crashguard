@@ -1,0 +1,90 @@
+from django.urls import path
+from sapp import views
+urlpatterns=[
+    path('add_ambulance',views.add_ambulance,name="add_ambulance"),
+    path('add_hospital',views.add_hospital,name="add_hospital"),
+    path('add_trafficpolice',views.add_trafficpolice,name="add_trafficpolice"),
+    path('adminhome',views.adminhome,name="adminhome"),
+    path('edithospital',views.edithospital,name="edithospital"),
+    path('editambulance',views.editambulance,name="editambulance"),
+    path('edittrafficpolice/<int:trafic_id>',views.edittrafficpolice,name="edittrafficpolice"),
+    path('edithospita/<int:id>',views.edithospita,name="edithospita"),
+    path('editambuln/<int:id>',views.editambuln,name="editambuln"),
+    path('editambula',views.editambula,name="editambula"),
+    path('edit_tp_action',views.edit_tp_action,name="edit_tp_action"),
+    path('edithspt',views.edithspt,name="edithspt"),
+    path('',views.loginpage,name="loginpage"),
+    path('login_btn',views.login_btn,name="login_btn"),
+    path('manageambulance',views.manageambulance,name="manageambulance"),
+    path('delambulance/<int:id>',views.delambulance,name="delambulance"),
+    path('delhospital/<int:id>',views.delhospital,name="delhospital"),
+    path('deltrafficpolice/<int:id>',views.deltrafficpolice,name="deltrafficpolice"),
+    path('add_amb', views.add_amb, name="add_amb"),
+    path('managehospital',views.managehospital,name="managehospital"),
+    path('add_hspt', views.add_hspt, name="add_hspt"),
+    path('managetrafficpolice',views.managetrafficpolice,name="managetrafficpolice"),
+    path('managetpsrch',views.managetpsrch,name="managetpsrch"),
+    path('verifydriver',views.verifydriver,name="verifydriver"),
+    path('verify_driver_search',views.verify_driver_search,name="verify_driver_search"),
+    path('acceptdriver/<int:id>',views.acceptdriver,name="acceptdriver"),
+    path('rejectdriver/<int:id>',views.rejectdriver,name="rejectdriver"),
+    path('trafficpolicehome',views.trafficpolicehome,name="trafficpolicehome"),
+    path('trafficpolice',views.trafficpolice,name="trafficpolice"),
+    path('add_tpbtn', views.add_tpbtn, name="add_tpbtn"),
+    path('add_replay', views.add_replay, name="add_replay"),
+    path('viewaccidentreport1',views.viewaccidentreport1,name="viewaccidentreport1"),
+    path('viewaccidentreport',views.viewaccidentreport,name="viewaccidentreport"),
+    path('accident_search',views.accident_search,name="accident_search"),
+    path('emergency_srch',views.emergency_srch,name="emergency_srch"),
+    path('viewcomplaint',views.viewcomplaint,name="viewcomplaint"),
+    path('sendreply/<int:id>',views.sendreply,name="sendreply"),
+    path('hspt_srch',views.hspt_srch,name="hspt_srch"),
+    path('viewemergencyreport',views.viewemergencyreport,name="viewemergencyreport"),
+    path('AMBULANCE_search',views.AMBULANCE_search,name="AMBULANCE_search"),
+    path('viewaccidentreport1_search',views.viewaccidentreport1_search,name="viewaccidentreport1_search"),
+    path('logout',views.logout,name="logout"),
+
+
+
+
+
+
+
+
+
+
+
+    path('login_code',views.login_code,name="login_code"),
+    path('setemergencynumber',views.setemergencynumber,name="setemergencynumber"),
+    path('view_nearhspt',views.view_nearhspt,name="view_nearhspt"),
+    path('viewstation',views.viewstation,name="viewstation"),
+    path('senntcomplaint',views.senntcomplaint,name="senntcomplaint"),
+    path('view_traffic',views.view_traffic,name="view_traffic"),
+    path('searchtraffic',views.view_traffic,name="searchtraffic"),
+    path('viewreply',views.viewreply,name="viewreply"),
+    path('view_nearacci',views.view_nearacci,name="view_nearacci"),
+    path('registration',views.registration,name="registration"),
+    path('updatelocation',views.updatelocation,name="updatelocation"),
+    path('emergency',views.emergency,name="emergency"),
+    path('assginacccode',views.assginacccode,name="assginacccode"),
+    path('assginacc/<int:id>',views.assginacc,name="assginacc"),
+
+    path('get_notifications', views.get_notifications, name="get_notifications"),
+    path('/and_logincode', views.and_logincode, name="and_logincode"),
+    path('/update_emergency', views.update_emergency, name="update_emergency"),
+    path('view_hospital', views.view_hospital, name="view_hospital"),
+    path('view_accident_report', views.view_accident_report, name="view_accident_report"),
+    path('/and_profile', views.and_profile, name="and_profile"),
+    path('/driver_update_profile', views.driver_update_profile, name="driver_update_profile"),
+    path('driver_view_hospital', views.driver_view_hospital, name="driver_view_hospital"),
+    path('driver_view_police', views.driver_view_police, name="driver_view_police"),
+    path('drivercomplaint', views.drivercomplaint, name="drivercomplaint"),
+    path('viewcomplaintreply', views.viewcomplaintreply, name="viewcomplaintreply"),
+    path('delete_complaint', views.delete_complaint, name="delete_complaint"),
+    path('/user_registrationcode', views.user_registrationcode, name="user_registrationcode"),
+    path('viewemergency_accidentcase', views.viewemergency_accidentcase, name="viewemergency_accidentcase"),
+    path('viewdrivermanagerelation', views.viewdrivermanagerelation, name="viewdrivermanagerelation"),
+    path('insert_emergency', views.insert_emergency, name="insert_emergency"),
+    path('/drivermanagerelation', views.drivermanagerelation, name="drivermanagerelation"),
+
+]

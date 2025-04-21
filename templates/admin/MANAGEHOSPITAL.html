@@ -1,0 +1,225 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#{% extends 'admin/index.html'%}#}
+{#{% block body %}#}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="hspt_srch#about">#}
+{#  <table class="table table-hover" id="customers">#}
+{#    <tr>#}
+{#      <td colspan="9">NAME#}
+{#      <input type="text" name="textfield" class="btn btn-outline-primary" /> <label>#}
+{#      <input type="submit" name="Submit" value="SEARCH" required class="btn btn-outline-primary" />#}
+{#      </label></td>#}
+{#    </tr>#}
+{#    <tr>#}
+{#        <th>id</th>#}
+{#      <th>NAME</th>#}
+{#      <th>DETAILS</th>#}
+{#      <th>PHONE</th>#}
+{#      <th>EMAIL</th>#}
+{#      <th>LATITUDE</th>#}
+{#      <th>LONGITUDE</th>#}
+{#      <th>image</th>#}
+{#        <th></th>#}
+{##}
+{##}
+{#    </tr>#}
+{#       {% for i in val %}#}
+{#    <tr>#}
+{#      <td>{{ forloop.counter }}</td>#}
+{#        <td>{{ i.name }}</td>#}
+{#      <td>{{ i.details }}</td>#}
+{#      <td>{{ i.phone }}</td>#}
+{#        <td>{{  i.email }}</td>#}
+{#        <td>{{ i.latitude }}</td>#}
+{#        <td>{{ i.longitude }}</td>#}
+{#      <td><img src="{{ i.image.url }}"height="100"width="100"></td>#}
+{#        <td><a href="edithospita/{{ i.id }}#about"class="btn btn-primary">EDIT</a>#}
+{#        <a href="/delhospital/{{ i.id }}"class="btn btn-danger">DELETE</a></td>#}
+{##}
+{#      </tr>#}
+{#      {% endfor %}#}
+{#    </tr>#}
+{#       <tr>#}
+{#      <td height="74" colspan="10"><div align="center"><a href="add_hospital#about"class="btn btn-primary">ADD NEW</a></div></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{##}
+{#{% endblock %}#}
+{% extends 'admin/index.html' %}
+{% block body %}
+<head>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+    }
+
+    .container {
+      width: 90%;
+      margin: auto;
+      margin-top: 20px;
+    }
+
+    .search-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .search-box input[type="text"],
+    .search-box input[type="submit"] {
+      padding: 8px;
+      border: 2px solid #007bff;
+      border-radius: 5px;
+      width: 200px;
+    }
+
+    .search-box input[type="submit"] {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      width: 100px;
+    }
+
+    .search-box input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #007bff;
+      color: white;
+      font-weight: bold;
+    }
+
+    tr:hover {
+      background-color: #f1f1f1;
+    }
+
+    .btn-edit {
+      background-color: #007bff;
+      color: white;
+      padding: 6px 12px;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    .btn-edit:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-delete {
+      background-color: #dc3545;
+      color: white;
+      padding: 6px 12px;
+      text-decoration: none;
+      border-radius: 5px;
+      display: inline-block;
+    }
+
+    .btn-delete:hover {
+      background-color: #c82333;
+    }
+
+    .btn-add {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 16px;
+      margin-top: 20px;
+    }
+
+    .btn-add:hover {
+      background-color: #0056b3;
+    }
+
+    img {
+      border-radius: 5px;
+      border: 1px solid #ddd;
+    }
+  </style>
+</head>
+
+<body>
+  <form id="form1" name="form1" method="post" action="hspt_srch#about">
+    <div class="container">
+
+      <!-- Search Box -->
+      <div class="search-box">
+        <label><strong>NAME:</strong></label>
+        <input type="text" name="textfield" required />
+        <input type="submit" name="Submit" value="SEARCH" />
+      </div>
+
+      <!-- Table -->
+      <table>
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>DETAILS</th>
+            <th>PHONE</th>
+            <th>EMAIL</th>
+            <th>LATITUDE</th>
+            <th>LONGITUDE</th>
+            <th>IMAGE</th>
+            <th>ACTION</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for i in val %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ i.name }}</td>
+            <td>{{ i.details }}</td>
+            <td>{{ i.phone }}</td>
+            <td>{{ i.email }}</td>
+            <td>{{ i.latitude }}</td>
+            <td>{{ i.longitude }}</td>
+            <td><img src="{{ i.image.url }}" height="100" width="100"></td>
+            <td>
+              <a href="edithospita/{{ i.id }}#about" class="btn-edit">EDIT</a>
+              <a href="/delhospital/{{ i.id }}" class="btn-delete">DELETE</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+
+      <!-- Add Button -->
+      <div align="center">
+        <a href="add_hospital#about" class="btn-add">ADD NEW</a>
+      </div>
+
+    </div>
+  </form>
+</body>
+{% endblock %}

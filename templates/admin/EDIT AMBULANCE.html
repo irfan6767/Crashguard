@@ -1,0 +1,148 @@
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>Untitled Document</title>#}
+{#</head>#}
+{##}
+{#{% extends 'admin/index.html'%}#}
+{#{% block body %}#}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="/editambula" enctype="multipart/form-data">#}
+{#  <table class="table table-hover"id="customers">#}
+{#    <tr>#}
+{#      <td width="287" height="362"><p>NAME#}
+{#        <input type="text" name="textfield" value="{{ val.name }}" required pattern="[A-Z a-z.]{3,25}" />#}
+{#      </p>#}
+{#        <p>VEHICLE NO#}
+{#          <input type="text" name="textfield2" value="{{ val.vehicle_no }}" required pattern="[A-Z]{2}[-][0-9]{1,2}[-][A-Z]{1,2}[-][0-9]{3,4}$}"/>#}
+{#        </p>#}
+{#        <p>PHOTO#}
+{#          <input type="file" name="file" class="file-upload btn btn-primary btn-block rounded-pill shadow" />    <img src="{{ val.photo.url }}" width="100" height="100" >#}
+{#        </p>#}
+{#        <p>PHONE#}
+{#          <input type="text" name="textfield3"  value="{{ val.phone }}" required pattern="[6789][0-9]{9}"/>#}
+{#        </p>#}
+{#        <p>PROOF#}
+{#          <input type="file" name="file2" class="file-upload btn btn-primary btn-block rounded-pill shadow" />  <a href="{{ val.proof.url }}"target="_blank" >{{ val.proof }} </a>#}
+{#        </p>#}
+{#      <p align="center">#}
+{#        <input type="submit" name="Submit" value="SAVE" class="btn btn-outline-primary" />#}
+{#      </p></td>#}
+{#    </tr>#}
+{#  </table>#}
+{#</form>#}
+{#</body>#}
+{#{% endblock %}#}
+
+{% extends 'admin/index.html' %}
+{% block body %}
+<body>
+<style>
+  /* Table styling */
+  table#customers {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+  }
+
+  table#customers td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+
+  table#customers tr:hover {
+    background-color: #f1f1f1;
+  }
+
+  /* Input field styling */
+  input[type="text"], input[type="file"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+
+  /* Submit button styling */
+  input[type="submit"] {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+
+  input[type="submit"]:hover {
+    background-color: #0056b3;
+  }
+
+  /* Label styling */
+  label {
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+  }
+
+  /* Image styling */
+  img {
+    margin-top: 10px;
+    border-radius: 8px;
+  }
+
+  /* Form container */
+  form {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+
+  /* Center alignment for form */
+  p {
+    text-align: center;
+  }
+</style>
+
+<form id="form1" name="form1" method="post" action="/editambula" enctype="multipart/form-data">
+  <table class="table table-hover" id="customers">
+    <tr>
+      <td height="362">
+        <p>NAME
+          <input type="text" name="textfield" value="{{ val.name }}" required pattern="[A-Z a-z.]{3,25}" />
+        </p>
+        <p>VEHICLE NO
+          <input type="text" name="textfield2" value="{{ val.vehicle_no }}" required pattern="[A-Z]{2}[0-9]{2}[A-Z]{0,2}[0-9]{4}" />
+        </p>
+        <p>PHOTO
+          <input type="file" name="file" class="file-upload btn btn-primary btn-block rounded-pill shadow" />
+          <img src="{{ val.photo.url }}" width="200" height="150" />
+        </p>
+        <p>PHONE
+          <input type="text" name="textfield3" value="{{ val.phone }}" required pattern="[6789][0-9]{9}" />
+        </p>
+        <p>PROOF
+          <input type="file" name="file2" class="file-upload btn btn-primary btn-block rounded-pill shadow" />
+          <a href="{{ val.proof.url }}" target="_blank">{{ val.proof }}</a>
+        </p>
+        <br><br>
+        <p align="center">
+          <label>
+            <input type="submit" name="Submit" value="SAVE" class="btn btn-outline-primary" />
+          </label>
+        </p>
+      </td>
+    </tr>
+  </table>
+</form>
+</body>
+{% endblock %}
